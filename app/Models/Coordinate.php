@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coordinate extends Model
 {
-    use HasFactory;
-    protected $table = 'coordinates';
-    protected $fillable = ['lat', 'lng'];
+  use HasFactory;
+  protected $table    = 'coordinates';
+  protected $fillable = ['lat', 'lng'];
+  protected $casts    = [
+    'lat' => 'float',
+    'lng' => 'float'
+  ];
 }

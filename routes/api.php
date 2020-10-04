@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\AreaController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\FloodplainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['prefix' => 'client'], function () {
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
 });
 
-Route::group(['prefix' => 'flooded-areas'], function () {
-    Route::get('', [AreaController::class, 'index']);
+Route::group(['prefix' => 'admin'], function () {
+});
+
+Route::group(['prefix' => 'floodplains'], function () {
+  Route::get('', [FloodplainController::class, 'index']);
+  Route::post('', [FloodplainController::class, 'store']);
 });

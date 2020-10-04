@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FloodImage extends Model
 {
     use HasFactory;
+    protected $table    = 'flood_images';
+    protected $fillable = ['name'];
+
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Area;
+use App\Models\Floodplain;
 use Illuminate\Database\Seeder;
 
 class FloodImageSeeder extends Seeder
@@ -32,11 +32,12 @@ class FloodImageSeeder extends Seeder
       [['name' => 'dong-da.png']],
       [['name' => 'tran-cao-van.png']],
       [['name' => 'ha-huy-tap.png']]
-
     ];
 
     foreach ($images as $key => $image) {
-      Area::find($key + 1)->floodImages()->sync($image);
+      foreach ($image as $value) {
+        Floodplain::find($key + 1)->floodImages()->create($value);
+      }
     }
   }
 }

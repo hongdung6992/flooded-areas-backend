@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     $this->call([
-      AreaSeeder::class,
+      FloodplainSeeder::class,
       CoordinateSeeder::class,
       FloodImageSeeder::class,
     ]);

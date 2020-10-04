@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Area;
+use App\Models\Floodplain;
 use Illuminate\Database\Seeder;
 
 class CoordinateSeeder extends Seeder
@@ -25,10 +26,10 @@ class CoordinateSeeder extends Seeder
         ['lat' => 16.064407, 'lng' => 108.207978],
       ],
       [
-        ['lat' => 16.061008, 'lng' => 108.222747],
-        ['lat' => 16.061034, 'lng' => 108.223621],
-        ['lat' => 16.062971, 'lng' => 108.223652],
-        ['lat' => 16.063010, 'lng' => 108.222980],
+        ['lat' => 16.060580, 'lng' => 108.212855],
+        ['lat' => 16.061271, 'lng' => 108.216958],
+        ['lat' => 16.060357, 'lng' => 108.217128],
+        ['lat' => 16.059641, 'lng' => 108.213022],
       ],
       [
         ['lat' => 16.061008, 'lng' => 108.222747],
@@ -81,7 +82,9 @@ class CoordinateSeeder extends Seeder
     ];
 
     foreach ($coordinates as $key => $coordinate) {
-      Area::find($key + 1)->coordinates()->sync($coordinate);
+      foreach ($coordinate as $value) {
+        Floodplain::find($key + 1)->coordinates()->create($value);
+      }
     }
   }
 }

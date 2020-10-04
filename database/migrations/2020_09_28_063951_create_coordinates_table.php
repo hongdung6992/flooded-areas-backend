@@ -15,11 +15,11 @@ class CreateCoordinatesTable extends Migration
     {
         Schema::create('coordinates', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('area_id')->unsigned();
+            $table->bigInteger('floodplain_id')->unsigned();
             $table->decimal('lat', 12, 9);
             $table->decimal('lng', 12, 9);
             $table->timestamps();
-            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+            $table->foreign('floodplain_id')->references('id')->on('floodplains')->onDelete('cascade');
         });
     }
 
